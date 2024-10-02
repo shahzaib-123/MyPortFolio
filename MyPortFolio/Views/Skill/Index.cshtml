@@ -1,0 +1,33 @@
+﻿@model IEnumerable<MyPortFolio.Models.Skills>
+
+@{
+    ViewData["Title"] = "Skills";
+}
+
+<div class="container">
+    <h1 class="mt-4">My Skills</h1>
+
+    <div class="row">
+        @foreach (var skill in Model)
+        {
+            // Calculate proficiency percentage
+            var proficiencyPercentage = (skill.ProfeciencyLevel / 5.0) * 100;
+
+            <div class="col-md-6">
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">@skill.Name</h5>
+
+                        <p class="card-text">Proficiency Level: @skill.ProfeciencyLevel</p>
+
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: @proficiencyPercentage%;" aria-valuenow="@proficiencyPercentage" aria-valuemin="0" aria-valuemax="100">
+                                @Math.Round(proficiencyPercentage, 2)%
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

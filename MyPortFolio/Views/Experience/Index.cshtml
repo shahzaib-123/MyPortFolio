@@ -1,0 +1,44 @@
+﻿@model IEnumerable<MyPortFolio.Models.Experience>
+
+@{
+    ViewData["Title"] = "Experience";
+}
+
+<div class="container">
+    <h1 class="mt-4">Work Experience</h1>
+
+    <div class="row">
+        @foreach (var experience in Model)
+        {
+            <div class="col-md-6">
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">@experience.Title</h5>
+                        <p class="card-text"><strong>Company:</strong> @experience.Company</p>
+
+                        <p class="card-text">
+                            <strong>Duration:</strong>
+                            @if (experience.StartDate.HasValue)
+                            {
+                                @experience.StartDate.Value.ToString("MMMM yyyy")
+                            }
+                            else
+                            {
+                                <span>Start date not available</span>
+                            }
+                            -
+                            @if (experience.EndDate.HasValue)
+                            {
+                                @experience.EndDate.Value.ToString("MMMM yyyy")
+                            }
+                            else
+                            {
+                                <span>Present</span>
+                            }
+                        </p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

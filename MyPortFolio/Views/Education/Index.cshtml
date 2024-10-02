@@ -1,0 +1,44 @@
+﻿@model IEnumerable<MyPortFolio.Models.Education>
+
+@{
+    ViewData["Title"] = "Education";
+}
+
+<div class="container">
+    <h1 class="mt-4">My Education</h1>
+
+    <div class="row">
+        @foreach (var education in Model)
+        {
+            <div class="col-md-6">
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">@education.Degree</h5>
+                        <p class="card-text"><strong>Institute:</strong> @education.Institute</p>
+
+                        <p class="card-text">
+                            <strong>Duration:</strong>
+                            @if (education.StartDate.HasValue)
+                            {
+                                @education.StartDate.Value.ToString("MMMM yyyy")
+                            }
+                            else
+                            {
+                                <span>Start date not available</span>
+                            }
+                            -
+                            @if (education.EndDate.HasValue)
+                            {
+                                @education.EndDate.Value.ToString("MMMM yyyy")
+                            }
+                            else
+                            {
+                                <span>Present</span>
+                            }
+                        </p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

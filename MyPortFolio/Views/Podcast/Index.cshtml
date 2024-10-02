@@ -1,0 +1,105 @@
+﻿@{
+    ViewData["Title"] = "Resume Podcast";
+}
+
+<div class="podcast-container">
+    <div class="podcast-card shadow">
+        <h2 class="podcast-title">🎙️Resume Podcast</h2>
+        <p class="podcast-description">Listen to an overview of my resume through this podcast:</p>
+
+        <!-- Audio Player -->
+        <div class="audio-player">
+            <audio controls>
+                <source src="~/audio/podcastaudio.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <!-- Key Points Summary -->
+        <div class="resume-summary">
+            <h3>🔑 Key Points Covered:</h3>
+            <ul>
+                <li>Educational Background</li>
+                <li>Work Experience</li>
+                <li>Skills and Projects</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- CSS Styling -->
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    .podcast-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        padding: 20px;
+    }
+
+    .podcast-card {
+        background-color: white;
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        max-width: 600px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .podcast-title {
+        font-size: 2rem;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    .podcast-description {
+        font-size: 1.1rem;
+        color: #555;
+        margin-bottom: 30px;
+    }
+
+    .audio-player {
+        margin-bottom: 30px;
+    }
+
+    audio {
+        width: 100%;
+        border-radius: 8px;
+        outline: none;
+    }
+
+    .resume-summary {
+        text-align: left;
+        margin-top: 30px;
+    }
+
+        .resume-summary h3 {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .resume-summary ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .resume-summary li {
+            font-size: 1.1rem;
+            color: #007bff;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+            .resume-summary li::before {
+                content: "✔️";
+                color: #007bff;
+                margin-right: 10px;
+            }
+</style>

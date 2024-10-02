@@ -1,0 +1,55 @@
+﻿@model IEnumerable<MyPortFolio.Models.Projects>
+
+@{
+    ViewData["Title"] = "Projects";
+}
+
+<div class="container">
+    <h1 class="mt-4">My Projects</h1>
+    <div class="row justify-content-center">
+        <!-- Center the cards -->
+        @foreach (var project in Model)
+        {
+            <div class="col-12 col-md-8 col-lg-6">
+                <!-- Adjusted column size -->
+                <div class="card mb-4 shadow-sm" style="height: 100%;">
+                    <!-- Added height style for uniformity -->
+                    @if (!string.IsNullOrEmpty(project.ImagePath))
+                    {
+                        <img class="card-img-top" src="@project.ImagePath" alt="@project.Title" style="max-height: 200px; width: 100%; object-fit: contain;"> <!-- Use object-fit: contain to prevent cropping -->
+                    }
+                    else
+                    {
+                        <img class="card-img-top" src="https://raw.githubusercontent.com/shahzaib-123/imagesRepo/9391983b33862a7d7eb02a823dd945107cbe2191/default.jpg" alt="Default Image" style="max-height: 200px; width: 100%; object-fit: contain;">
+                    }
+                    <div class="card-body">
+                        <h5 class="card-title">@project.Title</h5>
+                        <p class="card-text">@project.Description</p>
+                        <p><strong>Technologies:</strong> @project.Technologies</p>
+
+                        @if (!string.IsNullOrEmpty(project.ProjectURL))
+                        {
+                            <a href="@project.ProjectURL" class="btn btn-primary" target="_blank">View Project</a>
+                        }
+                        else
+                        {
+                            <p class="text-muted">No URL provided</p>
+                        }
+
+                        <div class="mt-2">
+                            @if (project.StartDate.HasValue)
+                            {
+                                <p><strong>Start Date:</strong> @project.StartDate.Value.ToString("MMMM dd, yyyy")</p>
+                            }
+
+                            @if (project.EndDate.HasValue)
+                            {
+                                <p><strong>End Date:</strong> @project.EndDate.Value.ToString("MMMM dd, yyyy")</p>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

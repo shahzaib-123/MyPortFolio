@@ -1,0 +1,37 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="container">
+    <div class="row mt-5">
+        <!-- Profile Picture -->
+        <div class="col-md-4 text-center">
+            <img src="~/images/MyPic.png" class="rounded-circle img-fluid" alt="Shahzaib Asghar" style="max-width: 250px;">
+        </div>
+
+        <!-- Introduction Section -->
+        <div class="col-md-8">
+            <h1>Hello, I'm Shahzaib Asghar</h1>
+            <p>
+                Welcome to my portfolio! I am an AI developer with a passion for learning and implementing cutting-edge technology.
+                I have completed my BS in Artificial Intelligence and have worked on various exciting projects in data science,
+                business intelligence, and software development.
+            </p>
+            <p>
+                Currently, I am a Management Trainee at Aga Khan University, where I work on ERP systems and innovative solutions.
+                With a strong foundation in AI, predictive modeling, and database management, I aim to bring impactful solutions
+                through my work.
+            </p>
+
+            <p>
+                Feel free to explore my projects, skills, and experiences. I am always looking for new opportunities to grow and make
+                a positive contribution in the tech world.
+            </p>
+
+            
+            <div class="mt-4">
+                <a href="@Url.Action("Contact", "Messages")" class="btn btn-primary">Contact Me</a>
+            </div>
+        </div>
+    </div>
+</div>
